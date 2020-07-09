@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  nexus:
+    container_name: nexus
+    image: sonatype/nexus3
+    #user: "701" # 계정 uid (OS volume 연결시 권한문제 때문)
+    ports:
+      - 8081:8081
+      - 5000:5000
+      - 6000:6000
+    volumes:
+      - /data/nexus-data:/nexus-data
+    environment:
+      TZ: Asia/Seoul
